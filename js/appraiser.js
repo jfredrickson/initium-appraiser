@@ -41,6 +41,7 @@ function calculateRating(actual, min, max) {
 }
 
 function parseWeapon(input) {
+  input = input.trim();
   var item = {
     name: input.match("^([A-Za-z ]+)[\r\n]")[1],
     weapon_damage: input.match("Weapon damage: ([D0-9]+)[ \t\r\n\f]")[1],
