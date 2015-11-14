@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <title>Initium Appraiser</title>
+  <meta name="description" content="Evaluate the value of Initium items.
+">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://initium-appraiser.github.io/">
+  <link rel="alternate" type="application/rss+xml" title="Initium Appraiser" href="http://initium-appraiser.github.io/feed.xml" />
+</head>
+
+
+  <body>
+
+    <div class="contain-to-grid">
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="">Initium Appraiser</a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <ul class="left">
+      </ul>
+      <ul class="right">
+      </ul>
+    </section>
+  </nav>
+</div>
+
+
+    <div class="main">
+
+  <div class="row">
+    <div class="columns">
+      <h2></h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns">
+      <div class="row">
+  <div class="columns">
+    <textarea id="paste" placeholder="Paste item information here"></textarea>
+    <button id="lookup">Lookup</button>
+    <p><a href="#" data-reveal-id="help-modal">Help</a></p>
+    <div id="help-modal" class="reveal-modal small" data-reveal role="dialog">
+      <p>Copy and paste this part of the item panel:</p>
+      <img class="item-screenshot" src="images/selection-screenshot.png" alt="Screenshot of the Initium item panel, showing the appropriate text selection">
+    </div>
+  </div>
+  <div class="columns">
+    <div id="item-info">
+      <h3 id="item-name"></h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Stat</th>
+            <th>Your Item</th>
+            <th>Low</th>
+            <th>High</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Weapon damage</th>
+            <td class="item-stat" id="item-weapon-damage"></td>
+            <td class="weapon-min" id="weapon-damage-min"></td>
+            <td class="weapon-max" id="weapon-damage-max"></td>
+            <td class="item-rating" id="item-weapon-damage-rating">
+              <div class="progress">
+                <span class="meter"></span>
+              </div>
+              <div class="rating"></div>
+            </td>
+          </tr>
+          <tr>
+            <th>Critical hit chance</th>
+            <td class="item-stat" id="item-critical-chance"></td>
+            <td class="weapon-min" id="critical-chance-min"></td>
+            <td class="weapon-max" id="critical-chance-max"></td>
+            <td class="item-rating" id="item-critical-chance-rating">
+              <div class="progress">
+                <span class="meter"></span>
+              </div>
+              <div class="rating"></div>
+            </td>
+          </tr>
+          <tr>
+            <th>Critical hit multiplier</th>
+            <td class="item-stat" id="item-critical-multiplier"></td>
+            <td class="weapon-min" id="critical-multiplier-min"></td>
+            <td class="weapon-max" id="critical-multiplier-max"></td>
+            <td class="item-rating" id="item-critical-multiplier-rating">
+              <div class="progress">
+                <span class="meter"></span>
+              </div>
+              <div class="rating"></div>
+            </td>
+          </tr>
+          <tr>
+            <th>Block chance</th>
+            <td class="item-stat" id="item-block-chance"></td>
+            <td class="weapon-min" id="block-chance-min"></td>
+            <td class="weapon-max" id="block-chance-max"></td>
+            <td class="item-rating" id="item-block-chance-rating">
+              <div class="progress">
+                <span class="meter"></span>
+              </div>
+              <div class="rating"></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+
+
+    <footer>
+  <div class="wrapper-footer">
+    <div class="row">
+      <div class="medium-4 columns">
+      </div>
+      <div class="medium-4 columns">
+      </div>
+      <div class="medium-4 columns">
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="/js/jquery-2.1.4.min.js"></script>
+    <script src="/js/foundation/foundation.js"></script>
+    <script src="/js/foundation/foundation.topbar.js"></script>
+    <script src="/js/foundation/foundation.reveal.js"></script>
+    <script src="/js/appraiser.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+
+  </body>
+
+</html>

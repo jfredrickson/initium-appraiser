@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Umbra Foil",
+    "damage_die_rolls_min": 1,
+    "damage_die_rolls_max": 3,
+    "damage_die_sides_min": 6,
+    "damage_die_sides_max": 11,
+    "critical_chance_min": 8.0,
+    "critical_chance_max": 16.67,
+    "critical_multiplier_min": 2.0,
+    "critical_multiplier_max": 4.0,
+    "block_chance_min": 33,
+    "block_chance_max": 36
+  },
+  {
+    "name": "Sword of the Barony",
+    "damage_die_rolls_min": 3,
+    "damage_die_rolls_max": 3,
+    "damage_die_sides_min": 10,
+    "damage_die_sides_max": 10,
+    "critical_chance_min": 9.09,
+    "critical_chance_max": 9.09,
+    "critical_multiplier_min": 2.0,
+    "critical_multiplier_max": 2.0,
+    "block_chance_min": 33,
+    "block_chance_max": 33
+  },
+  {
+    "name": "Battleaxe",
+    "damage_die_rolls_min": 1,
+    "damage_die_rolls_max": 1,
+    "damage_die_sides_min": 6,
+    "damage_die_sides_max": 9,
+    "critical_chance_min": 4.35,
+    "critical_chance_max": 5,
+    "critical_multiplier_min": 3.0,
+    "critical_multiplier_max": 3.0,
+    "block_chance_min": 14,
+    "block_chance_max": 14
+  }
+]
