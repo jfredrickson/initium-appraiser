@@ -1,3 +1,6 @@
+---
+---
+
 function populateItemInfo(data) {
   $("#item-info").show();
   $("#item-name").text(data.item.name);
@@ -60,7 +63,7 @@ function parseWeapon(input) {
 
 $("#lookup").click(function () {
   var item = parseWeapon($("#paste").val());
-  var xhr = $.get("data/weapons.json");
+  var xhr = $.get("{{ site.baseurl }}/data/weapons.json");
   xhr.done(function (weapons) {
     var weapon = {};
     weapons.forEach(function (w) {
