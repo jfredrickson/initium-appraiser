@@ -4,7 +4,8 @@ email: jeff.fredrickson@gmail.com
 description: >
   Evaluate the value of Initium items.
 baseurl: "/initium-appraiser"
-url: "http://jfredrickson.github.io/initium-appraiser/"
+url: "http://jfredrickson.github.io/initium-appraiser"
 
 # Build settings
 markdown: kramdown
+exclude: [README.md, Gemfile*]
