@@ -4,7 +4,10 @@ layout: page
 
 <div class="row">
   <div class="columns">
-    <textarea id="paste" placeholder="Paste item information here"></textarea>
+    <div>
+      <textarea id="paste" class="error" placeholder="Paste item information here"></textarea>
+      <small id="paste-error" class="error">Invalid input. Are you pasting <a href="#" data-reveal-id="help-modal">the right information</a>?</small>
+    </div>
     <button id="lookup">Lookup</button>
     <p><a href="#" data-reveal-id="help-modal">Help</a></p>
     <div id="help-modal" class="reveal-modal small" data-reveal role="dialog">

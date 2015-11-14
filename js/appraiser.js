@@ -2,7 +2,6 @@
 ---
 
 function populateItemInfo(data) {
-  $("#item-info").show();
   $("#item-name").text(data.item.name);
 
   $("#item-weapon-damage").text(data.item.weapon_damage);
@@ -42,28 +41,39 @@ function calculateRating(actual, min, max) {
 
 function parseWeapon(input) {
   input = input.trim();
-  var item = {
-    name: input.match("^([A-Za-z ]+)[\r\n]")[1],
-    weapon_damage: input.match("Weapon damage: ([D0-9]+)[ \t\r\n\f]")[1],
-    damage_die_rolls: parseInt(input.match("Weapon damage: ([0-9]+)D[0-9]+[ \t\r\n\f]")[1]),
-    damage_die_sides: parseInt(input.match("Weapon damage: [0-9]+D([0-9]+)[ \t\r\n\f]")[1]),
-    critical_chance: parseFloat(input.match("Critical hit chance: ([0-9\.]+)%[ \t\r\n\f]")[1]),
-    critical_multiplier: parseFloat(input.match("Critical hit multiplier: ([0-9\.]+)x[ \t\r\n\f]")[1]),
-    damage_type: input.match("Damage Type: ([A-Za-z]+)[ \t\r\n\f]")[1],
-    block_chance: parseInt(input.match("Block chance: ([0-9]+)%[ \t\r\n\f]")[1]),
-    block_bludgeoning_text: input.match("Block bludgeoning: ([A-Za-z]+)[ \t\r\n\f]")[1],
-    block_piercing_text: input.match("Block piercing: ([A-Za-z]+)[ \t\r\n\f]")[1],
-    block_slashing_text: input.match("Block slashing: ([A-Za-z]+)[ \t\r\n\f]")[1],
-    weight: parseInt(input.match("Weight: ([0-9]+)g[ \t\r\n\f]")[1]),
-    space: parseInt(input.match("Space: ([0-9]+)cc[ \t\r\n\f]")[1]),
-    current_durability: parseInt(input.match("Durability: ([0-9]+)/([0-9]+)[ \t\r\n\f]*")[1]),
-    durability: parseInt(input.match("Durability: ([0-9]+)/([0-9]+)[ \t\r\n\f]*")[2])
-  };
+  var item = {};
+  try {
+    item = {
+      name: input.match("^([A-Za-z ]+)[\r\n]")[1],
+      weapon_damage: input.match("Weapon damage: ([D0-9]+)[ \t\r\n\f]")[1],
+      damage_die_rolls: parseInt(input.match("Weapon damage: ([0-9]+)D[0-9]+[ \t\r\n\f]")[1]),
+      damage_die_sides: parseInt(input.match("Weapon damage: [0-9]+D([0-9]+)[ \t\r\n\f]")[1]),
+      critical_chance: parseFloat(input.match("Critical hit chance: ([0-9\.]+)%[ \t\r\n\f]")[1]),
+      critical_multiplier: parseFloat(input.match("Critical hit multiplier: ([0-9\.]+)x[ \t\r\n\f]")[1]),
+      damage_type: input.match("Damage Type: ([A-Za-z]+)[ \t\r\n\f]")[1],
+      block_chance: parseInt(input.match("Block chance: ([0-9]+)%[ \t\r\n\f]")[1]),
+      block_bludgeoning_text: input.match("Block bludgeoning: ([A-Za-z]+)[ \t\r\n\f]")[1],
+      block_piercing_text: input.match("Block piercing: ([A-Za-z]+)[ \t\r\n\f]")[1],
+      block_slashing_text: input.match("Block slashing: ([A-Za-z]+)[ \t\r\n\f]")[1],
+      weight: parseInt(input.match("Weight: ([0-9]+)g[ \t\r\n\f]")[1]),
+      space: parseInt(input.match("Space: ([0-9]+)cc[ \t\r\n\f]")[1]),
+      current_durability: parseInt(input.match("Durability: ([0-9]+)/([0-9]+)[ \t\r\n\f]*")[1]),
+      durability: parseInt(input.match("Durability: ([0-9]+)/([0-9]+)[ \t\r\n\f]*")[2])
+    };
+  } catch (e) {
+    // Return an empty object
+  }
   return item;
 }
 
 $("#lookup").click(function () {
+  $("#paste-error").hide();
+  $("#item-info").hide();
   var item = parseWeapon($("#paste").val());
+  if ($.isEmptyObject(item)) {
+    $("#paste-error").show();
+    return;
+  }
   var xhr = $.get("{{ site.baseurl }}/data/weapons.json");
   xhr.done(function (weapons) {
     var weapon = {};
@@ -75,5 +85,6 @@ $("#lookup").click(function () {
     })
     data = { item: item, weapon: weapon };
     populateItemInfo(data);
+    $("#item-info").show();
   });
 });

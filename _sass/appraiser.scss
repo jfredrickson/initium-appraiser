@@ -6,10 +6,23 @@ textarea#paste {
   height: 12em;
 }
 
+#paste-error {
+  display: none;
+}
+
 #item-info {
   display: none;
 }
 
 #item-info table {
   width: 100%;
+}
+
+.error a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+button#lookup {
+  margin-top: 1em;
 }
