@@ -3,8 +3,8 @@ title: Initium Appraiser
 email: jeff.fredrickson@gmail.com
 description: >
   Evaluate the value of Initium items.
-baseurl: ""
-url: "http://initium-appraiser.github.io"
+baseurl: "/initium-appraiser/"
+url: "http://jfredrickson.github.io/initium-appraiser/"
 
 # Build settings
 markdown: kramdown
