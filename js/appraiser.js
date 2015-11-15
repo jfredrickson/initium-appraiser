@@ -68,9 +68,11 @@ function parseWeapon(input) {
 
 $("#lookup").click(function () {
   $("#paste-error").hide();
+  $("#paste").removeClass("error");
   $("#item-info").hide();
   var item = parseWeapon($("#paste").val());
   if ($.isEmptyObject(item)) {
+    $("#paste").addClass("error");
     $("#paste-error").show();
     return;
   }
